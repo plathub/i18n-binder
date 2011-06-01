@@ -59,7 +59,7 @@ public class PropertyFileContentParserTest
     
     //
     assertNotNull( propertyFileContent );
-    assertEquals( 11, propertyFileContent.size() );
+    assertEquals( 13, propertyFileContent.size() );
     
     //
     Element element = null;
@@ -160,9 +160,13 @@ public class PropertyFileContentParserTest
       element = propertyFileContent.getElementByIndexPosition( index++ );
       assertTrue( element instanceof BlankLineElement );
     }
+    {
+      //
+      element = propertyFileContent.getElementByIndexPosition( index++ );
+      assertTrue( element instanceof BlankLineElement );
+    }
     
-    //
-    
+    //    
     PropertyFileContentWriter.writePropertyFileContentToFile( propertyFileContent, this.destFile, "UTF-8" );
     
     //

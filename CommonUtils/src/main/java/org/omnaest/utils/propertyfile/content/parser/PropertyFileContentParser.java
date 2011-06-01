@@ -15,14 +15,14 @@
  ******************************************************************************/
 package org.omnaest.utils.propertyfile.content.parser;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.omnaest.utils.propertyfile.PropertyFile;
 import org.omnaest.utils.propertyfile.content.PropertyFileContent;
@@ -49,8 +49,23 @@ public class PropertyFileContentParser
       //
       try
       {
-        //        
-        BufferedReader bufferedReader = new BufferedReader( new InputStreamReader( new FileInputStream( file ), fileEncoding ) );
+        //      
+        List<String> lineContentList = new ArrayList<String>();
+        {
+          //
+          String fileContent = FileUtils.readFileToString( file, fileEncoding );
+          
+          //
+          Scanner scanner = new Scanner( fileContent );
+          while ( scanner.hasNextLine() )
+          {
+            lineContentList.add( scanner.nextLine() );
+          }
+          if ( fileContent.endsWith( "\n" ) || fileContent.endsWith( "\r" ) )
+          {
+            lineContentList.add( "" );
+          }
+        }
         
         //
         Pattern patternComment = Pattern.compile( "([^\\#]*)(\\!|\\#)(.*)" );
@@ -59,9 +74,8 @@ public class PropertyFileContentParser
         Pattern patternPropertyOngoingLine = Pattern.compile( "(.*[^\\\\]|[^\\\\]?)(\\\\?)" );
         
         //
-        String lineContent = null;
         Property propertyMultiline = null;
-        while ( ( lineContent = bufferedReader.readLine() ) != null )
+        for ( String lineContent : lineContentList )
         {
           //
           if ( propertyMultiline == null )
@@ -133,9 +147,6 @@ public class PropertyFileContentParser
           }
         }
         
-        //
-        bufferedReader.close();
-        
       }
       catch ( Exception e )
       {
@@ -146,5 +157,4 @@ public class PropertyFileContentParser
     //
     return propertyFileContent;
   }
-  
 }

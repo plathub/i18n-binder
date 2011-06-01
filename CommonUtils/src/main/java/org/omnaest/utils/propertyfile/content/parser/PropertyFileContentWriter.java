@@ -15,11 +15,13 @@
  ******************************************************************************/
 package org.omnaest.utils.propertyfile.content.parser;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
 import org.omnaest.utils.propertyfile.content.Element;
 import org.omnaest.utils.propertyfile.content.PropertyFileContent;
 import org.omnaest.utils.propertyfile.content.element.BlankLineElement;
@@ -34,6 +36,11 @@ import org.omnaest.utils.propertyfile.content.element.Property;
  */
 public class PropertyFileContentWriter
 {
+  /* ********************************************** Constants ********************************************** */
+  protected static final String LINE_SEPARATOR = System.getProperty( "line.separator" );
+  
+  /* ********************************************** Methods ********************************************** */
+
   /**
    * @see PropertyFileContentParser
    * @param propertyFileContent
@@ -116,7 +123,32 @@ public class PropertyFileContentWriter
         }
         
         //
-        FileUtils.writeLines( file, fileEncoding, contentList );
+        {
+          //
+          BufferedWriter bufferedWriter = new BufferedWriter( new OutputStreamWriter( new FileOutputStream( file ), fileEncoding ) );
+          
+          //
+          boolean firstLine = true;
+          for ( String content : contentList )
+          {
+            //
+            if ( firstLine )
+            {
+              firstLine = false;
+            }
+            else
+            {
+              bufferedWriter.write( LINE_SEPARATOR );
+            }
+            
+            //
+            bufferedWriter.write( content );
+          }
+          
+          //
+          bufferedWriter.close();
+        }
+        
       }
       catch ( Exception e )
       {
