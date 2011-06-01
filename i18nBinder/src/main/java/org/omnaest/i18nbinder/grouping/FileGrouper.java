@@ -25,8 +25,13 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.omnaest.utils.pattern.MatchResultGroupReplacer;
+
 /**
- * This class supports the grouping of {@link File} instances by their file names.
+ * This class supports the grouping of {@link File} instances by their file names. <br>
+ * <br>
+ * The grouping is tried to be done to as many defined regular expression groups as possible. This implies the groups have the
+ * same value. If the values are different only the first group is replaced.
  * 
  * @see #determineFileGroupList()
  * @author Omnaest
@@ -80,40 +85,47 @@ public class FileGrouper
       if ( matcher.matches() )
       {
         //
-        int groupingPatternGroupingGroupIndex = -1;
+        List<Integer> groupingPatternGroupIndexMatchingList = new ArrayList<Integer>();
+        String groupValueFirstMatching = null;
         {
           //
           for ( Integer iGroupingPatternGroupingGroupIndex : this.groupingPatternGroupingGroupIndexList )
           {
-            //            
-            if ( matcher.groupCount() >= iGroupingPatternGroupingGroupIndex.intValue()
-                 && matcher.group( iGroupingPatternGroupingGroupIndex ) != null )
+            // 
+            if ( matcher.groupCount() >= iGroupingPatternGroupingGroupIndex.intValue() )
             {
-              groupingPatternGroupingGroupIndex = iGroupingPatternGroupingGroupIndex;
-              break;
+              //
+              String groupValue = matcher.group( iGroupingPatternGroupingGroupIndex );
+              if ( groupValue != null && ( groupValueFirstMatching == null || groupValueFirstMatching.equals( groupValue ) ) )
+              {
+                groupingPatternGroupIndexMatchingList.add( iGroupingPatternGroupingGroupIndex );
+                groupValueFirstMatching = groupValue;
+              }
             }
           }
         }
         
         //
-        if ( groupingPatternGroupingGroupIndex >= 0 )
+        if ( groupValueFirstMatching != null )
         {
           //
-          int start = matcher.start( groupingPatternGroupingGroupIndex );
-          int end = matcher.end( groupingPatternGroupingGroupIndex );
+          MatchResultGroupReplacer matchResultGroupReplacer = new MatchResultGroupReplacer( matcher.toMatchResult() );
+          Map<Integer, String> groupIndexToNewValueMap = new HashMap<Integer, String>();
+          {
+            for ( Integer groupIndex : groupingPatternGroupIndexMatchingList )
+            {
+              groupIndexToNewValueMap.put( groupIndex, this.groupingPatternReplacementToken );
+            }
+          }
           
           //
-          String pathBefore = absolutePath.substring( 0, start );
-          String pathAfter = absolutePath.substring( end );
-          
-          //
-          String fileGroupIdentifier = pathBefore + this.groupingPatternReplacementToken + pathAfter;
-          
-          String groupToken = absolutePath.substring( start, end );
+          String fileGroupIdentifier = matchResultGroupReplacer.replaceGroups( groupIndexToNewValueMap );
+          String groupToken = groupValueFirstMatching;
           
           //                 
           if ( !retmap.containsKey( fileGroupIdentifier ) )
           {
+            //
             FileGroup fileGroup = new FileGroup();
             fileGroup.setFileGroupIdentifier( fileGroupIdentifier );
             retmap.put( fileGroupIdentifier, fileGroup );
@@ -128,6 +140,7 @@ public class FileGrouper
             Map<String, File> groupTokenToFileMap = fileGroup.getGroupTokenToFileMap();
             groupTokenToFileMap.put( groupToken, file );
           }
+          
         }
       }
     }
