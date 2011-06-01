@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<project name="I18nBinder" basedir=".">
+
+	<taskdef name="i18nBinder" classname="org.omnaest.i18nbinder.I18nBinder">
+		<classpath>
+			<pathelement location="i18nBinder-0.0.1-SNAPSHOT-jar-with-dependencies.jar" />
+		</classpath>
+	</taskdef>
+
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<classpath>
+			<pathelement location="${ANT_HOME}/lib/ant-contrib-1.0br.jar" />
+		</classpath>
+	</taskdef>
+
+	<!-- INITIALIZE -->
+	<property file="i18nBinder.properties" />
+
+	<!-- TARGETS -->
+	<target name="createXLSFile" description="This task creates a XLS file from a given fileset of property files.">
+		<i18nBinder xlsfilename="${xlsFilename}" logInfo="${logInfo}" localeFilterRegex="${localeFilterRegex}" fileNameLocaleGroupPattern="${fileNameLocaleGroupPattern}" fileNameLocaleGroupPatternGroupIndexList="${fileNameLocaleGroupPatternGroupIndexList}">
+			<fileset dir="${i18nDirectory}">
+				<include name="**/*.properties" />
+			</fileset>
+		</i18nBinder>
+	</target>
+
+	<target name="writeProperties" description="Writes the properties to the property files using the XLS file as source.">
+		<i18nBinder xlsFileName="${xlsFilename}" logInfo="${logInfo}" localeFilterRegex="${localeFilterRegex}" fileEncoding="${fileEncoding}" deletePropertiesWithBlankValue="${deletePropertiesWithBlankValue}" />
+	</target>
+
+</project>
