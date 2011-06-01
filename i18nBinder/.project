@@ -20,11 +20,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.maven.ide.eclipse.maven2Nature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>build.xml</name>
-			<type>1</type>
-			<location>C:/Temp/i18ntest/build.xml</location>
-		</link>
-	</linkedResources>
 </projectDescription>
