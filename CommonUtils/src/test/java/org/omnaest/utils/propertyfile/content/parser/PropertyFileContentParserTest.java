@@ -107,7 +107,7 @@ public class PropertyFileContentParserTest
       
       //
       Property property = (Property) element;
-      assertEquals( "key", property.getKey() );
+      assertEquals( "key(dyn)", property.getKey() );
       assertEquals( "  = ", property.getDelimiter() );
       assertEquals( "value", property.getValueList().get( 0 ) );
     }
