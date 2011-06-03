@@ -16,16 +16,20 @@
 package org.omnaest.i18nbinder.internal;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.omnaest.i18nbinder.internal.XLSFile.TableRow;
+import org.omnaest.utils.propertyfile.PropertyFile;
+import org.omnaest.utils.propertyfile.content.PropertyFileContent;
 
 public class ModifierHelperTest
 {
@@ -51,10 +55,16 @@ public class ModifierHelperTest
     //
     this.xlsFile = new File( new File( this.getClass().getResource( PROPERTY_FILENAMES[0] ).getFile() ).getParent()
                              + "\\result.xls" );
+    
+    if ( this.xlsFile.exists() )
+    {
+      this.xlsFile.delete();
+    }
+    
   }
   
   @Test
-  public void testModifierHelper()
+  public void testModifierHelperLoadAndStore()
   {
     //
     XLSFile xlsFile = ModifierHelper.createXLSFileFromPropertyFiles( this.propertyFileSet, new LocaleFilter(), null, null );
@@ -114,4 +124,49 @@ public class ModifierHelperTest
       assertEquals( Arrays.asList( "my.property.key4", "", "wert4", "" ), tableRow.subList( 1, tableRow.size() ) );
     }
   }
+  
+  @Test
+  public void testModifierHelperAddKey()
+  {
+    //
+    XLSFile xlsFile = ModifierHelper.createXLSFileFromPropertyFiles( this.propertyFileSet, new LocaleFilter(), null, null );
+    
+    //
+    List<TableRow> tableRowList = xlsFile.getTableRowList();
+    
+    //
+    String propertyKey = "new.key";
+    List<String> propertyValueList = Arrays.asList( "new.value" );
+    
+    //
+    TableRow tableRow = new TableRow();
+    tableRow.addAll( tableRowList.get( tableRowList.size() - 1 ) );
+    tableRow.set( 1, propertyKey );
+    tableRow.set( 2, propertyValueList.get( 0 ) );
+    xlsFile.getTableRowList().add( tableRow );
+    
+    //
+    xlsFile.setFile( this.xlsFile );
+    xlsFile.store();
+    
+    //
+    ModifierHelper.writeXLSFileContentToPropertyFiles( xlsFile.getFile(), null, new LocaleFilter(), true );
+    
+    //
+    String locale = tableRowList.get( 0 ).get( 2 );
+    String propertyFileName = tableRow.get( 0 ).replaceAll( Pattern.quote( "{locale}" ), locale );
+    PropertyFile propertyFile = new PropertyFile( propertyFileName );
+    
+    //
+    assertTrue( propertyFile.getFile().exists() );
+    
+    //
+    propertyFile.load();
+    PropertyFileContent propertyFileContent = propertyFile.getPropertyFileContent();
+    
+    //
+    assertTrue( propertyFileContent.hasPropertyKeyAndValueList( propertyKey, propertyValueList ) );
+    
+  }
+  
 }

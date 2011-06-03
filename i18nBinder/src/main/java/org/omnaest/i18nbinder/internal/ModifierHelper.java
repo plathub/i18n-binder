@@ -181,9 +181,12 @@ public class ModifierHelper
                                                                       : new Property();
             
             //
-            List<String> valueList = property.getValueList();
-            valueList.clear();
-            valueList.addAll( Arrays.asList( values ) );
+            property.setKey( propertyKey );
+            property.clearValues();
+            property.addAllValues( Arrays.asList( values ) );
+            
+            //
+            propertyMap.put( property );
             
             //
             contentChanged = true;
