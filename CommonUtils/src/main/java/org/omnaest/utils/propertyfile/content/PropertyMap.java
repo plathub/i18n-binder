@@ -72,6 +72,21 @@ public class PropertyMap extends MapAbstract<String, Property>
     return retval;
   }
   
+  public Property put( Property property )
+  {
+    //
+    Property retval = null;
+    
+    //
+    if ( property != null )
+    {
+      retval = this.put( property.getKey(), property );
+    }
+    
+    //
+    return retval;
+  }
+  
   @Override
   public Property put( String key, Property property )
   {

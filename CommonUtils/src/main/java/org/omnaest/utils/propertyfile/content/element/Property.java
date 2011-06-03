@@ -16,6 +16,7 @@
 package org.omnaest.utils.propertyfile.content.element;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.omnaest.utils.propertyfile.content.Element;
@@ -28,11 +29,14 @@ import org.omnaest.utils.propertyfile.content.PropertyFileContent;
  */
 public class Property extends Element
 {
+  /* ********************************************** Constants ********************************************** */
+  private static final String DELIMITER_DEFAULT = " = ";
+  
   /* ********************************************** Variables ********************************************** */
-  protected String       prefixBlanks = null;
-  protected String       key          = null;
-  protected String       delimiter    = null;
-  protected List<String> valueList    = new ArrayList<String>();
+  protected String            prefixBlanks      = "";
+  protected String            key               = null;
+  protected String            delimiter         = DELIMITER_DEFAULT;
+  protected List<String>      valueList         = new ArrayList<String>();
   
   /* ********************************************** Methods ********************************************** */
   public String getKey()
@@ -68,6 +72,148 @@ public class Property extends Element
   public void setPrefixBlanks( String prefixBlanks )
   {
     this.prefixBlanks = prefixBlanks;
+  }
+  
+  public void addValue( int index, String value )
+  {
+    this.valueList.add( index, value );
+  }
+  
+  public boolean addValue( String value )
+  {
+    return this.valueList.add( value );
+  }
+  
+  public boolean addAllValues( Collection<String> valueCollection )
+  {
+    return this.valueList.addAll( valueCollection );
+  }
+  
+  public void clearValues()
+  {
+    this.valueList.clear();
+  }
+  
+  @Override
+  public int hashCode()
+  {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ( ( this.delimiter == null ) ? 0 : this.delimiter.hashCode() );
+    result = prime * result + ( ( this.key == null ) ? 0 : this.key.hashCode() );
+    result = prime * result + ( ( this.prefixBlanks == null ) ? 0 : this.prefixBlanks.hashCode() );
+    result = prime * result + ( ( this.valueList == null ) ? 0 : this.valueList.hashCode() );
+    return result;
+  }
+  
+  /**
+   * Returns true, if the {@link #getKey()} and {@link #getValueList()} are equal.
+   * 
+   * @param object
+   * @return
+   */
+  public boolean equalsInKeyAndValue( Object object )
+  {
+    if ( this == object )
+    {
+      return true;
+    }
+    if ( object == null )
+    {
+      return false;
+    }
+    if ( !( object instanceof Property ) )
+    {
+      return false;
+    }
+    Property other = (Property) object;
+    
+    if ( this.key == null )
+    {
+      if ( other.key != null )
+      {
+        return false;
+      }
+    }
+    else if ( !this.key.equals( other.key ) )
+    {
+      return false;
+    }
+    if ( this.valueList == null )
+    {
+      if ( other.valueList != null )
+      {
+        return false;
+      }
+    }
+    else if ( !this.valueList.equals( other.valueList ) )
+    {
+      return false;
+    }
+    return true;
+  }
+  
+  @Override
+  public boolean equals( Object obj )
+  {
+    if ( this == obj )
+    {
+      return true;
+    }
+    if ( obj == null )
+    {
+      return false;
+    }
+    if ( !( obj instanceof Property ) )
+    {
+      return false;
+    }
+    Property other = (Property) obj;
+    if ( this.delimiter == null )
+    {
+      if ( other.delimiter != null )
+      {
+        return false;
+      }
+    }
+    else if ( !this.delimiter.equals( other.delimiter ) )
+    {
+      return false;
+    }
+    if ( this.key == null )
+    {
+      if ( other.key != null )
+      {
+        return false;
+      }
+    }
+    else if ( !this.key.equals( other.key ) )
+    {
+      return false;
+    }
+    if ( this.prefixBlanks == null )
+    {
+      if ( other.prefixBlanks != null )
+      {
+        return false;
+      }
+    }
+    else if ( !this.prefixBlanks.equals( other.prefixBlanks ) )
+    {
+      return false;
+    }
+    if ( this.valueList == null )
+    {
+      if ( other.valueList != null )
+      {
+        return false;
+      }
+    }
+    else if ( !this.valueList.equals( other.valueList ) )
+    {
+      return false;
+    }
+    return true;
   }
   
 }

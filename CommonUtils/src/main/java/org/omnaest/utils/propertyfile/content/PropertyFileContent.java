@@ -227,4 +227,107 @@ public class PropertyFileContent
   {
     return new PropertyMap( this );
   }
+  
+  /**
+   * Returns true if a {@link Property} with the given key exists.
+   * 
+   * @param propertyKey
+   * @return
+   */
+  public boolean hasPropertyKey( String propertyKey )
+  {
+    //
+    boolean retval = false;
+    
+    //
+    if ( propertyKey != null )
+    {
+      //
+      PropertyMap propertyMap = this.getPropertyMap();
+      
+      //
+      retval = propertyMap.containsKey( propertyKey );
+    }
+    
+    //
+    return retval;
+  }
+  
+  /**
+   * Returns true if a {@link Property} with the given key exists.
+   * 
+   * @param propertyKey
+   * @param propertyValueList
+   * @return
+   */
+  public boolean hasPropertyKeyAndValueList( String propertyKey, List<String> propertyValueList )
+  {
+    //
+    boolean retval = false;
+    
+    //
+    if ( propertyKey != null && propertyValueList != null )
+    {
+      //
+      PropertyMap propertyMap = this.getPropertyMap();
+      Property property = propertyMap.get( propertyKey );
+      
+      //      
+      retval = property != null && propertyValueList.equals( property.getValueList() );
+    }
+    
+    //
+    return retval;
+  }
+  
+  /**
+   * Returns true if the same {@link Property} is present. Uses {@link Property#equals(Object)} comparison.
+   * 
+   * @see #hasProperty(Property)
+   * @param property
+   * @return
+   */
+  public boolean hasProperty( Property property )
+  {
+    //
+    boolean retval = false;
+    
+    //
+    if ( property != null )
+    {
+      //
+      Property propertyFound = this.getPropertyMap().get( property.getKey() );
+      
+      //
+      retval = property.equals( propertyFound );
+    }
+    
+    //
+    return retval;
+  }
+  
+  /**
+   * Returns true if the same {@link Property} is present. Uses {@link Property#equalsInKeyAndValue(Object)} comparison.
+   * 
+   * @see #hasPropertyKey(String)
+   * @param property
+   * @return
+   */
+  public boolean hasPropertyWithSameKeyAndValue( Property property )
+  {
+    //
+    boolean retval = false;
+    
+    //
+    if ( property != null )
+    {
+      //
+      Property propertyFound = this.getPropertyMap().get( property.getKey() );
+      
+      //
+      retval = property.equalsInKeyAndValue( propertyFound );
+    }
+    //
+    return retval;
+  }
 }

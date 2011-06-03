@@ -69,7 +69,7 @@ public class PropertyFileContentParser
         
         //
         Pattern patternComment = Pattern.compile( "([^\\#]*)(\\!|\\#)(.*)" );
-        Pattern patternProperty = Pattern.compile( "([^\\w]*)(\\w[\\w\\.\\(\\)]*)(\\s*=\\s*|\\s*\\:\\s*|\\s+)(.*[^\\\\]|[^\\\\]?)(\\\\?)" );
+        Pattern patternProperty = Pattern.compile( "([^\\w]*)([^\\s\\:\\=]+)(\\s*=\\s*|\\s*\\:\\s*|\\s+)(.*[^\\\\]|[^\\\\]?)(\\\\?)" );
         Pattern patternBlankLine = Pattern.compile( "([^\\w]*)" );
         Pattern patternPropertyOngoingLine = Pattern.compile( "(.*[^\\\\]|[^\\\\]?)(\\\\?)" );
         

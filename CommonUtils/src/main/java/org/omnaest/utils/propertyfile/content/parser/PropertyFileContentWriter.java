@@ -22,6 +22,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.omnaest.utils.propertyfile.content.Element;
 import org.omnaest.utils.propertyfile.content.PropertyFileContent;
 import org.omnaest.utils.propertyfile.content.element.BlankLineElement;
@@ -124,6 +125,9 @@ public class PropertyFileContentWriter
         
         //
         {
+          //ensure the file is created
+          FileUtils.writeStringToFile( file, "", fileEncoding );
+          
           //
           BufferedWriter bufferedWriter = new BufferedWriter( new OutputStreamWriter( new FileOutputStream( file ), fileEncoding ) );
           
