@@ -35,7 +35,7 @@ import org.omnaest.i18nbinder.internal.facade.I18nFacade.Translator;
  * @see #translator()
  * @see #translator(Locale)
  */ 
-@Generated(value = "http://code.google.com/p/i18n-binder/", date = "2016-03-22T12:08:39+01:00")
+@Generated(value = "http://code.google.com/p/i18n-binder/")
 public class Shared {
   public final static String baseName = "i18n.sub2.shared";
   private final Locale locale;

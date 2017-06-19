@@ -23,7 +23,7 @@ import org.omnaest.i18nbinder.internal.facade.i18nfacade.i18n._673numericalTest;
  * @see Sub2
  * @see ViewTest
  */ 
-@Generated(value = "http://code.google.com/p/i18n-binder/", date = "2016-03-22T12:08:39+01:00")
+@Generated(value = "http://code.google.com/p/i18n-binder/")
 public class I18n {
   /** @see _673numericalTest */
   public final _673numericalTest _673numericalTest;

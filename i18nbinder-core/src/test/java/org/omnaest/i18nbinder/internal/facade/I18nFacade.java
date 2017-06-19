@@ -15,12 +15,13 @@ import org.omnaest.i18nbinder.internal.facade.i18nfacade.I18n;
  * The facade methods will silently ignore all {@link MissingResourceException}s by default. To alter this behavior see {@link #I18nFacade(Locale, boolean)}<br><br>
  * @see I18n
  */ 
-@Generated(value = "http://code.google.com/p/i18n-binder/", date = "2016-03-22T12:08:39+01:00")
+@Generated(value = "http://code.google.com/p/i18n-binder/")
 public class I18nFacade {
   /** @see I18n */
   public final I18n I18n;
-   /** Static access helper for the underlying resource */
-   public static class Resource
+
+  /** Static access helper for the underlying resource */
+  public static class Resource
   {
     /** Internally used {@link ResourceBasedTranslator}. Changing this implementation affects the behavior of the whole facade */
     public static ResourceBasedTranslator resourceBasedTranslator = new ResourceBasedTranslator()
@@ -28,14 +29,14 @@ public class I18nFacade {
       @Override
       public String translate( String baseName, String key, Locale locale )
       {
-        ResourceBundle resourceBundle = ResourceBundle.getBundle( baseName,locale );
+        ResourceBundle resourceBundle = ResourceBundle.getBundle(baseName, locale);
         return resourceBundle.getString( key );
       }
 
       @Override
       public String[] resolveAllKeys( String baseName, Locale locale )
       {
-        ResourceBundle resourceBundle = ResourceBundle.getBundle( baseName,locale );
+        ResourceBundle resourceBundle = ResourceBundle.getBundle(baseName, locale);
         return resourceBundle.keySet().toArray( new String[0] );
       }
     };
