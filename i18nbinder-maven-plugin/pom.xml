@@ -12,7 +12,7 @@
     <packaging>maven-plugin</packaging>
 
     <name>i18nbinder-maven-plugin Maven Mojo</name>
-    <url>http://code.google.com/p/i18n-binder/</url>
+    <url>https://github.com/schlothauer-wauer/i18n-binder</url>
     <dependencies>
         <dependency>
             <groupId>org.apache.maven</groupId>

@@ -7,7 +7,7 @@
     </parent>
     <artifactId>i18nbinder-core</artifactId>
     <name>i18nBinder-core module</name>
-    <url>http://code.google.com/p/i18n-binder/</url>
+    <url>https://github.com/schlothauer-wauer/i18n-binder</url>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
