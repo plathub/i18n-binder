@@ -68,6 +68,14 @@ public class I18nFacadeTest
 		assertEquals("wert3", i18nFacade.I18n.Sub2.Shared.getMyPropertyKey3());
 	}
 
+	@Test
+	public void testUtf8Encoding()
+	{
+		I18nFacade i18nFacade = new I18nFacade(new Locale("ru", "RU"));
+		assertEquals("цена́1", i18nFacade.I18n.AdminTest.getMyPropertyKey1());
+		assertEquals("цена́2", i18nFacade.I18n.AdminTest.getMyPropertyKey2());
+	}
+
 	@Test(expected = MissingResourceException.class)
 	public void testTranslateWithMissingKey()
 	{

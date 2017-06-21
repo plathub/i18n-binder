@@ -22,49 +22,37 @@ import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.junit.Before;
 import org.junit.Test;
 
 public class FacadeCreatorHelperTest
 {
-	/* ********************************************** Constants ********************************************** */
-	private final static String[] PROPERTY_FILENAMES = { "adminTest_de_DE.properties", "adminTest_en_US.properties",
+	private final static String[] PROPERTY_FILENAMES = {
+		"adminTest_de_DE.properties", "adminTest_en_US.properties",
 		"viewTest_de_DE.properties", "viewTest_en_US.properties", "localelessTest.properties", "673numericalTest_en_US.properties",
 		"sub1/shared_de_DE.properties", "sub2/shared_de_DE.properties" };
 
-	/* ********************************************** Variables ********************************************** */
-	private Set<File> propertyFileSet = new HashSet<File>();
-
-	/* ********************************************** Methods ********************************************** */
-
-	@Before
-	public void setUp() throws Exception
+	@Test
+	public void testCreateI18nInterfaceFacade() throws IOException
 	{
-		//
+		Set<File> propertyFileSet = new HashSet<File>();
 		for (String propertyFilename : PROPERTY_FILENAMES)
 		{
-			this.propertyFileSet.add(new File(this.getClass().getResource(propertyFilename).getFile()));
+			propertyFileSet.add(new File(this.getClass().getResource(propertyFilename).getFile()));
 		}
+		createI18nInterfaceFacadeFromPropertyFiles("I18nFacade", "org.omnaest.i18nbinder.internal.facade", true, propertyFileSet);
 	}
 
-	@Test
-	public void testCreateI18nInterfaceFacadeFromPropertyFiles() throws IOException
+	private void createI18nInterfaceFacadeFromPropertyFiles(String javaFacadeFileName, String packageName, boolean externalizeTypes, Set<File> files) throws IOException
 	{
-		//
 		final String packageBaseFolder = "org" + File.separator + "omnaest" + File.separator + "i18nbinder" + File.separator + "internal";
-
-		//
 		final String fileNameLocaleGroupPattern = null;
 		final List<Integer> groupingPatternGroupingGroupIndexList = null;
 		final String baseNameInTargetPlattform = "i18n";
-		final String baseFolderIgnoredPath = new File("").getAbsolutePath() + File.separator + "target" + File.separator + "test-classes" + File.separator + "" +
+		final String baseFolderIgnoredPath = new File("").getAbsolutePath() + File.separator + "target" + File.separator + "test-classes" + File.separator +
 			packageBaseFolder + File.separator;
-		final String packageName = "org.omnaest.i18nbinder.internal.facade";
-		final String javaFacadeFileName = "I18nFacade";
-		final boolean externalizeTypes = true;
 		final String propertyFileEncoding = "utf-8";
 
-		Map<String, String> facadeFromPropertyFiles = FacadeCreatorHelper.createI18nInterfaceFacadeFromPropertyFiles(this.propertyFileSet,
+		Map<String, String> facadeFromPropertyFiles = FacadeCreatorHelper.createI18nInterfaceFacadeFromPropertyFiles(files,
 			new LocaleFilter(),
 			fileNameLocaleGroupPattern,
 			groupingPatternGroupingGroupIndexList,
@@ -75,15 +63,12 @@ public class FacadeCreatorHelperTest
 			externalizeTypes,
 			propertyFileEncoding);
 
-		//
 		for (String fileName : facadeFromPropertyFiles.keySet())
 		{
-			//
 			final String basePath = new File("").getAbsolutePath() + File.separator + "src" + File.separator + "test" + File.separator + "java" + File.separator +
 				packageBaseFolder + File.separator + "facade" + File.separator;
 			final String fileContent = facadeFromPropertyFiles.get(fileName);
 
-			//
 			if (fileName.contains("."))
 			{
 				fileName = StringUtils.removeStart(fileName, packageName + ".");
@@ -104,6 +89,5 @@ public class FacadeCreatorHelperTest
 			final File file = new File(basePath, fileName + ".java");
 			FileUtils.writeStringToFile(file, fileContent, "utf-8");
 		}
-
 	}
 }

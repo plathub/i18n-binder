@@ -13,32 +13,33 @@ import org.omnaest.i18nbinder.internal.facade.i18nfacade.i18n.sub1.Shared;
  * Resource base: <b>i18n.sub1</b>
  * @see Shared
  */ 
-@Generated(value = "http://code.google.com/p/i18n-binder/")
-public class Sub1 {
-  /** @see Shared */
-  public final Shared Shared;
+@Generated(value = "https://github.com/schlothauer-wauer/i18n-binder/")
+public class Sub1
+{
+	/** @see Shared */
+	public final Shared Shared;
 
-  /**
-   * This {@link Sub1} constructor will create a new instance which silently ignores any {@link MissingResourceException} 
-   * @see Sub1
-   * @param locale
-   */ 
-  public Sub1( Locale locale )
-  {
-    this(locale,true);
-  }
-  
+	/**
+	 * This {@link Sub1} constructor will create a new instance which silently ignores any {@link MissingResourceException}
+	 * @see Sub1
+	 * @param locale
+	 */
+	public Sub1( Locale locale )
+	{
+		this(locale, true);
+	}
 
-  /**
-   * @see Sub1
-   * @param locale
-   * @param silentlyIgnoreMissingResourceException
-   */ 
-  public Sub1( Locale locale, boolean silentlyIgnoreMissingResourceException )
-  {
-    super();
-    this.Shared = new Shared( locale, silentlyIgnoreMissingResourceException );
-  }
-  
+
+	/**
+	 * @see Sub1
+	 * @param locale
+	 * @param silentlyIgnoreMissingResourceException
+	 */
+	public Sub1( Locale locale, boolean silentlyIgnoreMissingResourceException )
+	{
+		super();
+		this.Shared = new Shared( locale, silentlyIgnoreMissingResourceException );
+	}
+
 }
 

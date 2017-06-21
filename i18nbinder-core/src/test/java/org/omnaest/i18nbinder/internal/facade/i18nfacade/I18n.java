@@ -23,47 +23,48 @@ import org.omnaest.i18nbinder.internal.facade.i18nfacade.i18n._673numericalTest;
  * @see Sub2
  * @see ViewTest
  */ 
-@Generated(value = "http://code.google.com/p/i18n-binder/")
-public class I18n {
-  /** @see _673numericalTest */
-  public final _673numericalTest _673numericalTest;
-  /** @see AdminTest */
-  public final AdminTest AdminTest;
-  /** @see LocalelessTest */
-  public final LocalelessTest LocalelessTest;
-  /** @see Sub1 */
-  public final Sub1 Sub1;
-  /** @see Sub2 */
-  public final Sub2 Sub2;
-  /** @see ViewTest */
-  public final ViewTest ViewTest;
+@Generated(value = "https://github.com/schlothauer-wauer/i18n-binder/")
+public class I18n
+{
+	/** @see _673numericalTest */
+	public final _673numericalTest _673numericalTest;
+	/** @see AdminTest */
+	public final AdminTest AdminTest;
+	/** @see LocalelessTest */
+	public final LocalelessTest LocalelessTest;
+	/** @see Sub1 */
+	public final Sub1 Sub1;
+	/** @see Sub2 */
+	public final Sub2 Sub2;
+	/** @see ViewTest */
+	public final ViewTest ViewTest;
 
-  /**
-   * This {@link I18n} constructor will create a new instance which silently ignores any {@link MissingResourceException} 
-   * @see I18n
-   * @param locale
-   */ 
-  public I18n( Locale locale )
-  {
-    this(locale,true);
-  }
-  
+	/**
+	 * This {@link I18n} constructor will create a new instance which silently ignores any {@link MissingResourceException}
+	 * @see I18n
+	 * @param locale
+	 */
+	public I18n( Locale locale )
+	{
+		this(locale, true);
+	}
 
-  /**
-   * @see I18n
-   * @param locale
-   * @param silentlyIgnoreMissingResourceException
-   */ 
-  public I18n( Locale locale, boolean silentlyIgnoreMissingResourceException )
-  {
-    super();
-    this._673numericalTest = new _673numericalTest( locale, silentlyIgnoreMissingResourceException );
-    this.AdminTest = new AdminTest( locale, silentlyIgnoreMissingResourceException );
-    this.LocalelessTest = new LocalelessTest( locale, silentlyIgnoreMissingResourceException );
-    this.Sub1 = new Sub1( locale, silentlyIgnoreMissingResourceException );
-    this.Sub2 = new Sub2( locale, silentlyIgnoreMissingResourceException );
-    this.ViewTest = new ViewTest( locale, silentlyIgnoreMissingResourceException );
-  }
-  
+
+	/**
+	 * @see I18n
+	 * @param locale
+	 * @param silentlyIgnoreMissingResourceException
+	 */
+	public I18n( Locale locale, boolean silentlyIgnoreMissingResourceException )
+	{
+		super();
+		this._673numericalTest = new _673numericalTest( locale, silentlyIgnoreMissingResourceException );
+		this.AdminTest = new AdminTest( locale, silentlyIgnoreMissingResourceException );
+		this.LocalelessTest = new LocalelessTest( locale, silentlyIgnoreMissingResourceException );
+		this.Sub1 = new Sub1( locale, silentlyIgnoreMissingResourceException );
+		this.Sub2 = new Sub2( locale, silentlyIgnoreMissingResourceException );
+		this.ViewTest = new ViewTest( locale, silentlyIgnoreMissingResourceException );
+	}
+
 }
 

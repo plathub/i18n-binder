@@ -35,163 +35,167 @@ import org.omnaest.i18nbinder.internal.facade.I18nFacade.Translator;
  * @see #translator()
  * @see #translator(Locale)
  */ 
-@Generated(value = "http://code.google.com/p/i18n-binder/")
-public class Shared {
-  public final static String baseName = "i18n.sub2.shared";
-  private final Locale locale;
-  private final boolean silentlyIgnoreMissingResourceException;
+@Generated(value = "https://github.com/schlothauer-wauer/i18n-binder/")
+public class Shared
+{
+	public final static String baseName = "i18n.sub2.shared";
+	private final Locale locale;
+	private final boolean silentlyIgnoreMissingResourceException;
 
-  /**
-   * This {@link Shared} constructor will create a new instance which silently ignores any {@link MissingResourceException} 
-   * @see Shared
-   * @param locale
-   */ 
-  public Shared( Locale locale )
-  {
-    this(locale,true);
-  }
-  
+	/**
+	 * This {@link Shared} constructor will create a new instance which silently ignores any {@link MissingResourceException}
+	 * @see Shared
+	 * @param locale
+	 */
+	public Shared( Locale locale )
+	{
+		this(locale, true);
+	}
 
-  /**
-   * @see Shared
-   * @param locale
-   * @param silentlyIgnoreMissingResourceException
-   */ 
-  public Shared( Locale locale, boolean silentlyIgnoreMissingResourceException )
-  {
-    super();
-    this.locale = locale;
-    this.silentlyIgnoreMissingResourceException = silentlyIgnoreMissingResourceException;
-  }
-  
-  /**
-   * Similar to {@link #getMyPropertyKey3()} for the given {@link Locale}.
-   * @see Shared
-   * @see #getMyPropertyKey3()
-   * @param locale 
-   */ 
-  protected String getMyPropertyKey3(Locale locale)
-  {
-    try
-    {
-      final String key = "my.property.key3";
-      return I18nFacade.Resource.resourceBasedTranslator.translate( baseName, key, locale );
-    }
-    catch ( MissingResourceException e )
-    {
-      if (!this.silentlyIgnoreMissingResourceException)
-      {
-        throw e;
-      }
-      return null;
-    }
-  }
 
-  /**
-   * Returns the value of the property key <b>my.property.key3</b> for the predefined {@link Locale}.
+	/**
+	 * @see Shared
+	 * @param locale
+	 * @param silentlyIgnoreMissingResourceException
+	 */
+	public Shared( Locale locale, boolean silentlyIgnoreMissingResourceException )
+	{
+		super();
+		this.locale = locale;
+		this.silentlyIgnoreMissingResourceException = silentlyIgnoreMissingResourceException;
+	}
+
+	/**
+	 * Similar to {@link #getMyPropertyKey3()} for the given {@link Locale}.
+	 * @see Shared
+	 * @see #getMyPropertyKey3()
+	 * @param locale
+	 */
+	protected String getMyPropertyKey3(Locale locale)
+	{
+		try
+		{
+			final String key = "my.property.key3";
+			return I18nFacade.Resource.resourceBasedTranslator.translate( baseName, key, locale );
+		}
+		catch (MissingResourceException e)
+		{
+			if (!this.silentlyIgnoreMissingResourceException)
+			{
+				throw e;
+			}
+			return null;
+		}
+	}
+
+	/**
+	 * Returns the value of the property key <b>my.property.key3</b> for the predefined {@link Locale}.
    * <br><br>
    * 
    * Examples:
    * <ul>
    * <li>de_DE=wert3</li>
    * </ul>
-   * @see Shared
-   */ 
-  public String getMyPropertyKey3()
-  {
-    return getMyPropertyKey3( this.locale );
-  }
+	 * @see Shared
+	 */
+	public String getMyPropertyKey3()
+	{
+		return getMyPropertyKey3(this.locale);
+	}
 
-  /**
-   * Similar to {@link #getMyPropertyKey4()} for the given {@link Locale}.
-   * @see Shared
-   * @see #getMyPropertyKey4()
-   * @param locale 
-   */ 
-  protected String getMyPropertyKey4(Locale locale)
-  {
-    try
-    {
-      final String key = "my.property.key4";
-      return I18nFacade.Resource.resourceBasedTranslator.translate( baseName, key, locale );
-    }
-    catch ( MissingResourceException e )
-    {
-      if (!this.silentlyIgnoreMissingResourceException)
-      {
-        throw e;
-      }
-      return null;
-    }
-  }
+	/**
+	 * Similar to {@link #getMyPropertyKey4()} for the given {@link Locale}.
+	 * @see Shared
+	 * @see #getMyPropertyKey4()
+	 * @param locale
+	 */
+	protected String getMyPropertyKey4(Locale locale)
+	{
+		try
+		{
+			final String key = "my.property.key4";
+			return I18nFacade.Resource.resourceBasedTranslator.translate( baseName, key, locale );
+		}
+		catch (MissingResourceException e)
+		{
+			if (!this.silentlyIgnoreMissingResourceException)
+			{
+				throw e;
+			}
+			return null;
+		}
+	}
 
-  /**
-   * Returns the value of the property key <b>my.property.key4</b> for the predefined {@link Locale}.
+	/**
+	 * Returns the value of the property key <b>my.property.key4</b> for the predefined {@link Locale}.
    * <br><br>
    * 
    * Examples:
    * <ul>
    * <li>de_DE=wert4</li>
    * </ul>
-   * @see Shared
-   */ 
-  public String getMyPropertyKey4()
-  {
-    return getMyPropertyKey4( this.locale );
-  }
+	 * @see Shared
+	 */
+	public String getMyPropertyKey4()
+	{
+		return getMyPropertyKey4(this.locale);
+	}
 
-  /**
-   * Returns a new instance of {@link Shared} which uses the given setting for the exception handling
-   * @see Shared
-   * @param silentlyIgnoreMissingResourceException 
-   */ 
-  public Shared doSilentlyIgnoreMissingResourceException( boolean silentlyIgnoreMissingResourceException )
-  {
-    return new Shared( this.locale, silentlyIgnoreMissingResourceException );
-  }
+	/**
+	 * Returns a new instance of {@link Shared} which uses the given setting for the exception handling
+	 * @see Shared
+	 * @param silentlyIgnoreMissingResourceException
+	 */
+	public Shared doSilentlyIgnoreMissingResourceException( boolean silentlyIgnoreMissingResourceException )
+	{
+		return new Shared( this.locale, silentlyIgnoreMissingResourceException );
+	}
 
-  /**
-   * Returns a new instance of {@link Shared} which uses the given {@link Locale}
-   * @see Shared
-   * @param locale 
-   */ 
-  public Shared forLocale( Locale locale )
-  {
-    return new Shared( locale, this.silentlyIgnoreMissingResourceException );
-  }
+	/**
+	 * Returns a new instance of {@link Shared} which uses the given {@link Locale}
+	 * @see Shared
+	 * @param locale
+	 */
+	public Shared forLocale(Locale locale)
+	{
+		return new Shared(locale, this.silentlyIgnoreMissingResourceException);
+	}
 
-  /**
-   * Returns a new {@link Translator} instance using the given {@link Locale} and based on the {@value #baseName} i18n base
-   * @see Shared
-   * @see #translator()
-   * @see #translator(Locale)
-   * @return {@link Translator}   */ 
-  public static Translator translator(Locale locale, boolean silentlyIgnoreMissingResourceException)
-  {
-    return new Translator( baseName, locale, silentlyIgnoreMissingResourceException );
-  }
+	/**
+	 * Returns a new {@link Translator} instance using the given {@link Locale} and based on the {@value #baseName} i18n base
+	 * @see Shared
+	 * @see #translator()
+	 * @see #translator(Locale)
+	 * @return {@link Translator}
+	 */
+	public static Translator translator(Locale locale, boolean silentlyIgnoreMissingResourceException)
+	{
+		return new Translator( baseName, locale, silentlyIgnoreMissingResourceException );
+	}
 
-  /**
-   * Returns a new {@link Translator} instance using the given {@link Locale} and based on the {@value #baseName} i18n base
-   * @see Shared
-   * @see #translator()
-   * @see #translator(Locale,boolean)
-   * @return {@link Translator}   */ 
-  public Translator translator(Locale locale)
-  {
-    return new Translator( baseName, locale, this.silentlyIgnoreMissingResourceException );
-  }
+	/**
+	 * Returns a new {@link Translator} instance using the given {@link Locale} and based on the {@value #baseName} i18n base
+	 * @see Shared
+	 * @see #translator()
+	 * @see #translator(Locale, boolean)
+	 * @return {@link Translator}
+	 */
+	public Translator translator(Locale locale)
+	{
+		return new Translator( baseName, locale, this.silentlyIgnoreMissingResourceException );
+	}
 
-  /**
-   * Returns a new {@link Translator} instance using the internal {@link Locale} and based on the {@value #baseName} i18n base
-   * @see Shared
-   * @see #translator(Locale)
-   * @see #translator(Locale,boolean)
-   * @return {@link Translator}   */ 
-  public Translator translator()
-  {
-    return translator( this.locale );
-  }
+	/**
+	 * Returns a new {@link Translator} instance using the internal {@link Locale} and based on the {@value #baseName} i18n base
+	 * @see Shared
+	 * @see #translator(Locale)
+	 * @see #translator(Locale,boolean)
+	 * @return {@link Translator}
+	 */
+	public Translator translator()
+	{
+		return translator(this.locale);
+	}
 
 }
 
