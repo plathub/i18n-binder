@@ -30,7 +30,7 @@ import org.omnaest.i18nbinder.internal.facade.I18nFacade.Translator;
  * </table><br><br>
  * @see #translator()
  * @see #translator(Locale)
- */ 
+ */
 @Generated(value = "https://github.com/schlothauer-wauer/i18n-binder/")
 public class LocalelessTest
 {
@@ -40,21 +40,20 @@ public class LocalelessTest
 
 	/**
 	 * This {@link LocalelessTest} constructor will create a new instance which silently ignores any {@link MissingResourceException}
-	 * @see LocalelessTest
 	 * @param locale
+	 * @see LocalelessTest
 	 */
-	public LocalelessTest( Locale locale )
+	public LocalelessTest(Locale locale)
 	{
 		this(locale, true);
 	}
 
-
 	/**
-	 * @see LocalelessTest
 	 * @param locale
 	 * @param silentlyIgnoreMissingResourceException
+	 * @see LocalelessTest
 	 */
-	public LocalelessTest( Locale locale, boolean silentlyIgnoreMissingResourceException )
+	public LocalelessTest(Locale locale, boolean silentlyIgnoreMissingResourceException)
 	{
 		super();
 		this.locale = locale;
@@ -63,16 +62,16 @@ public class LocalelessTest
 
 	/**
 	 * Similar to {@link #getMyPropertyKey9()} for the given {@link Locale}.
+	 * @param locale
 	 * @see LocalelessTest
 	 * @see #getMyPropertyKey9()
-	 * @param locale
 	 */
 	protected String getMyPropertyKey9(Locale locale)
 	{
 		try
 		{
 			final String key = "my.property.key9";
-			return I18nFacade.Resource.resourceBasedTranslator.translate( baseName, key, locale );
+			return I18nFacade.Resource.resourceBasedTranslator.translate(baseName, key, locale);
 		}
 		catch (MissingResourceException e)
 		{
@@ -86,12 +85,12 @@ public class LocalelessTest
 
 	/**
 	 * Returns the value of the property key <b>my.property.key9</b> for the predefined {@link Locale}.
-   * <br><br>
-   * 
-   * Examples:
-   * <ul>
-   * <li>=value9</li>
-   * </ul>
+	 * <br><br>
+	 * 
+	 * Examples:
+	 * <ul>
+	 * <li>=value9</li>
+	 * </ul>
 	 * @see LocalelessTest
 	 */
 	public String getMyPropertyKey9()
@@ -101,18 +100,18 @@ public class LocalelessTest
 
 	/**
 	 * Returns a new instance of {@link LocalelessTest} which uses the given setting for the exception handling
-	 * @see LocalelessTest
 	 * @param silentlyIgnoreMissingResourceException
+	 * @see LocalelessTest
 	 */
-	public LocalelessTest doSilentlyIgnoreMissingResourceException( boolean silentlyIgnoreMissingResourceException )
+	public LocalelessTest doSilentlyIgnoreMissingResourceException(boolean silentlyIgnoreMissingResourceException)
 	{
-		return new LocalelessTest( this.locale, silentlyIgnoreMissingResourceException );
+		return new LocalelessTest(this.locale, silentlyIgnoreMissingResourceException);
 	}
 
 	/**
 	 * Returns a new instance of {@link LocalelessTest} which uses the given {@link Locale}
-	 * @see LocalelessTest
 	 * @param locale
+	 * @see LocalelessTest
 	 */
 	public LocalelessTest forLocale(Locale locale)
 	{
@@ -128,7 +127,7 @@ public class LocalelessTest
 	 */
 	public static Translator translator(Locale locale, boolean silentlyIgnoreMissingResourceException)
 	{
-		return new Translator( baseName, locale, silentlyIgnoreMissingResourceException );
+		return new Translator(baseName, locale, silentlyIgnoreMissingResourceException);
 	}
 
 	/**
@@ -140,7 +139,7 @@ public class LocalelessTest
 	 */
 	public Translator translator(Locale locale)
 	{
-		return new Translator( baseName, locale, this.silentlyIgnoreMissingResourceException );
+		return new Translator(baseName, locale, this.silentlyIgnoreMissingResourceException);
 	}
 
 	/**

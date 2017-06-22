@@ -26,11 +26,26 @@ public class SourceCodeBuilder
 		return this;
 	}
 
+	/** Begins a new block after <code>beginWith</code> */
+	public SourceCodeBuilder begins(String beginWith)
+	{
+		return append(beginWith).beginBlock();
+	}
+
+	public JavaDocBuilder javaDoc(String... strings)
+	{
+		append("/**");
+		JavaDocBuilder javaDocBuilder = new JavaDocBuilder(this);
+		for (String str : strings)
+		{
+			javaDocBuilder.append(str);
+		}
+		return javaDocBuilder;
+	}
+
 	public SourceCodeBuilder endBlock()
 	{
-		indention--;
-		stringBuilder.append(getIndention() + "}" + "\n");
-		return this;
+		return endBlock("");
 	}
 
 	public SourceCodeBuilder endBlock(String str)
@@ -56,9 +71,63 @@ public class SourceCodeBuilder
 		return stringBuilder.length();
 	}
 
+	public SourceCodeBuilder returns(String returnStr)
+	{
+		append("return " + returnStr);
+		return this;
+	}
+
 	@Override
 	public String toString()
 	{
 		return stringBuilder.toString();
+	}
+
+	public class JavaDocBuilder
+	{
+		private SourceCodeBuilder codeBuilder;
+
+		public JavaDocBuilder(SourceCodeBuilder codeBuilder)
+		{
+			this.codeBuilder = codeBuilder;
+		}
+
+		public JavaDocBuilder params(String... params)
+		{
+			for (String param : params)
+			{
+				param(param);
+			}
+			return this;
+		}
+
+		public JavaDocBuilder param(String param)
+		{
+			codeBuilder.append(" * @param " + param);
+			return this;
+		}
+
+		public JavaDocBuilder returns(String returnStr)
+		{
+			codeBuilder.append(" * @return " + returnStr);
+			return this;
+		}
+
+		public JavaDocBuilder see(String reference)
+		{
+			codeBuilder.append(" * @see " + reference);
+			return this;
+		}
+
+		public JavaDocBuilder append(String str)
+		{
+			codeBuilder.append(" * " + str);
+			return this;
+		}
+
+		public void end()
+		{
+			codeBuilder.append(" */");
+		}
 	}
 }

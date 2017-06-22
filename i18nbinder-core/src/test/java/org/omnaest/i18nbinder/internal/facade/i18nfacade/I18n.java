@@ -22,7 +22,7 @@ import org.omnaest.i18nbinder.internal.facade.i18nfacade.i18n._673numericalTest;
  * @see Sub1
  * @see Sub2
  * @see ViewTest
- */ 
+ */
 @Generated(value = "https://github.com/schlothauer-wauer/i18n-binder/")
 public class I18n
 {
@@ -41,29 +41,28 @@ public class I18n
 
 	/**
 	 * This {@link I18n} constructor will create a new instance which silently ignores any {@link MissingResourceException}
-	 * @see I18n
 	 * @param locale
+	 * @see I18n
 	 */
-	public I18n( Locale locale )
+	public I18n(Locale locale)
 	{
 		this(locale, true);
 	}
 
-
 	/**
-	 * @see I18n
 	 * @param locale
 	 * @param silentlyIgnoreMissingResourceException
+	 * @see I18n
 	 */
-	public I18n( Locale locale, boolean silentlyIgnoreMissingResourceException )
+	public I18n(Locale locale, boolean silentlyIgnoreMissingResourceException)
 	{
 		super();
-		this._673numericalTest = new _673numericalTest( locale, silentlyIgnoreMissingResourceException );
-		this.AdminTest = new AdminTest( locale, silentlyIgnoreMissingResourceException );
-		this.LocalelessTest = new LocalelessTest( locale, silentlyIgnoreMissingResourceException );
-		this.Sub1 = new Sub1( locale, silentlyIgnoreMissingResourceException );
-		this.Sub2 = new Sub2( locale, silentlyIgnoreMissingResourceException );
-		this.ViewTest = new ViewTest( locale, silentlyIgnoreMissingResourceException );
+		this._673numericalTest = new _673numericalTest(locale, silentlyIgnoreMissingResourceException);
+		this.AdminTest = new AdminTest(locale, silentlyIgnoreMissingResourceException);
+		this.LocalelessTest = new LocalelessTest(locale, silentlyIgnoreMissingResourceException);
+		this.Sub1 = new Sub1(locale, silentlyIgnoreMissingResourceException);
+		this.Sub2 = new Sub2(locale, silentlyIgnoreMissingResourceException);
+		this.ViewTest = new ViewTest(locale, silentlyIgnoreMissingResourceException);
 	}
 
 }

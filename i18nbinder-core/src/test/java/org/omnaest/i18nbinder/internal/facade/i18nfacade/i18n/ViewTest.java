@@ -41,7 +41,7 @@ import org.omnaest.i18nbinder.internal.facade.I18nFacade.Translator;
  * </table><br><br>
  * @see #translator()
  * @see #translator(Locale)
- */ 
+ */
 @Generated(value = "https://github.com/schlothauer-wauer/i18n-binder/")
 public class ViewTest
 {
@@ -51,21 +51,20 @@ public class ViewTest
 
 	/**
 	 * This {@link ViewTest} constructor will create a new instance which silently ignores any {@link MissingResourceException}
-	 * @see ViewTest
 	 * @param locale
+	 * @see ViewTest
 	 */
-	public ViewTest( Locale locale )
+	public ViewTest(Locale locale)
 	{
 		this(locale, true);
 	}
 
-
 	/**
-	 * @see ViewTest
 	 * @param locale
 	 * @param silentlyIgnoreMissingResourceException
+	 * @see ViewTest
 	 */
-	public ViewTest( Locale locale, boolean silentlyIgnoreMissingResourceException )
+	public ViewTest(Locale locale, boolean silentlyIgnoreMissingResourceException)
 	{
 		super();
 		this.locale = locale;
@@ -74,16 +73,16 @@ public class ViewTest
 
 	/**
 	 * Similar to {@link #getMyPropertyKey1()} for the given {@link Locale}.
+	 * @param locale
 	 * @see ViewTest
 	 * @see #getMyPropertyKey1()
-	 * @param locale
 	 */
 	protected String getMyPropertyKey1(Locale locale)
 	{
 		try
 		{
 			final String key = "my.property.key1";
-			return I18nFacade.Resource.resourceBasedTranslator.translate( baseName, key, locale );
+			return I18nFacade.Resource.resourceBasedTranslator.translate(baseName, key, locale);
 		}
 		catch (MissingResourceException e)
 		{
@@ -97,13 +96,13 @@ public class ViewTest
 
 	/**
 	 * Returns the value of the property key <b>my.property.key1</b> for the predefined {@link Locale}.
-   * <br><br>
-   * 
-   * Examples:
-   * <ul>
-   * <li>de_DE=wert1</li>
-   * <li>en_US=value1</li>
-   * </ul>
+	 * <br><br>
+	 * 
+	 * Examples:
+	 * <ul>
+	 * <li>de_DE=wert1</li>
+	 * <li>en_US=value1</li>
+	 * </ul>
 	 * @see ViewTest
 	 */
 	public String getMyPropertyKey1()
@@ -113,16 +112,16 @@ public class ViewTest
 
 	/**
 	 * Similar to {@link #getMyPropertyKey3()} for the given {@link Locale}.
+	 * @param locale
 	 * @see ViewTest
 	 * @see #getMyPropertyKey3()
-	 * @param locale
 	 */
 	protected String getMyPropertyKey3(Locale locale)
 	{
 		try
 		{
 			final String key = "my.property.key3";
-			return I18nFacade.Resource.resourceBasedTranslator.translate( baseName, key, locale );
+			return I18nFacade.Resource.resourceBasedTranslator.translate(baseName, key, locale);
 		}
 		catch (MissingResourceException e)
 		{
@@ -136,12 +135,12 @@ public class ViewTest
 
 	/**
 	 * Returns the value of the property key <b>my.property.key3</b> for the predefined {@link Locale}.
-   * <br><br>
-   * 
-   * Examples:
-   * <ul>
-   * <li>en_US=value3</li>
-   * </ul>
+	 * <br><br>
+	 * 
+	 * Examples:
+	 * <ul>
+	 * <li>en_US=value3</li>
+	 * </ul>
 	 * @see ViewTest
 	 */
 	public String getMyPropertyKey3()
@@ -151,16 +150,16 @@ public class ViewTest
 
 	/**
 	 * Similar to {@link #getMyPropertyKey4()} for the given {@link Locale}.
+	 * @param locale
 	 * @see ViewTest
 	 * @see #getMyPropertyKey4()
-	 * @param locale
 	 */
 	protected String getMyPropertyKey4(Locale locale)
 	{
 		try
 		{
 			final String key = "my.property.key4";
-			return I18nFacade.Resource.resourceBasedTranslator.translate( baseName, key, locale );
+			return I18nFacade.Resource.resourceBasedTranslator.translate(baseName, key, locale);
 		}
 		catch (MissingResourceException e)
 		{
@@ -174,12 +173,12 @@ public class ViewTest
 
 	/**
 	 * Returns the value of the property key <b>my.property.key4</b> for the predefined {@link Locale}.
-   * <br><br>
-   * 
-   * Examples:
-   * <ul>
-   * <li>de_DE=wert4</li>
-   * </ul>
+	 * <br><br>
+	 * 
+	 * Examples:
+	 * <ul>
+	 * <li>de_DE=wert4</li>
+	 * </ul>
 	 * @see ViewTest
 	 */
 	public String getMyPropertyKey4()
@@ -189,18 +188,18 @@ public class ViewTest
 
 	/**
 	 * Returns a new instance of {@link ViewTest} which uses the given setting for the exception handling
-	 * @see ViewTest
 	 * @param silentlyIgnoreMissingResourceException
+	 * @see ViewTest
 	 */
-	public ViewTest doSilentlyIgnoreMissingResourceException( boolean silentlyIgnoreMissingResourceException )
+	public ViewTest doSilentlyIgnoreMissingResourceException(boolean silentlyIgnoreMissingResourceException)
 	{
-		return new ViewTest( this.locale, silentlyIgnoreMissingResourceException );
+		return new ViewTest(this.locale, silentlyIgnoreMissingResourceException);
 	}
 
 	/**
 	 * Returns a new instance of {@link ViewTest} which uses the given {@link Locale}
-	 * @see ViewTest
 	 * @param locale
+	 * @see ViewTest
 	 */
 	public ViewTest forLocale(Locale locale)
 	{
@@ -216,7 +215,7 @@ public class ViewTest
 	 */
 	public static Translator translator(Locale locale, boolean silentlyIgnoreMissingResourceException)
 	{
-		return new Translator( baseName, locale, silentlyIgnoreMissingResourceException );
+		return new Translator(baseName, locale, silentlyIgnoreMissingResourceException);
 	}
 
 	/**
@@ -228,7 +227,7 @@ public class ViewTest
 	 */
 	public Translator translator(Locale locale)
 	{
-		return new Translator( baseName, locale, this.silentlyIgnoreMissingResourceException );
+		return new Translator(baseName, locale, this.silentlyIgnoreMissingResourceException);
 	}
 
 	/**

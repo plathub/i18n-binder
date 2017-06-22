@@ -12,7 +12,7 @@ import org.omnaest.i18nbinder.internal.facade.i18nfacade.i18n.sub1.Shared;
  * The facade methods will silently ignore all {@link MissingResourceException}s by default. To alter this behavior see {@link #Sub1(Locale, boolean)}<br><br>
  * Resource base: <b>i18n.sub1</b>
  * @see Shared
- */ 
+ */
 @Generated(value = "https://github.com/schlothauer-wauer/i18n-binder/")
 public class Sub1
 {
@@ -21,24 +21,23 @@ public class Sub1
 
 	/**
 	 * This {@link Sub1} constructor will create a new instance which silently ignores any {@link MissingResourceException}
-	 * @see Sub1
 	 * @param locale
+	 * @see Sub1
 	 */
-	public Sub1( Locale locale )
+	public Sub1(Locale locale)
 	{
 		this(locale, true);
 	}
 
-
 	/**
-	 * @see Sub1
 	 * @param locale
 	 * @param silentlyIgnoreMissingResourceException
+	 * @see Sub1
 	 */
-	public Sub1( Locale locale, boolean silentlyIgnoreMissingResourceException )
+	public Sub1(Locale locale, boolean silentlyIgnoreMissingResourceException)
 	{
 		super();
-		this.Shared = new Shared( locale, silentlyIgnoreMissingResourceException );
+		this.Shared = new Shared(locale, silentlyIgnoreMissingResourceException);
 	}
 
 }

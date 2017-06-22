@@ -34,7 +34,7 @@ import org.omnaest.i18nbinder.internal.facade.I18nFacade.Translator;
  * </table><br><br>
  * @see #translator()
  * @see #translator(Locale)
- */ 
+ */
 @Generated(value = "https://github.com/schlothauer-wauer/i18n-binder/")
 public class Shared
 {
@@ -44,21 +44,20 @@ public class Shared
 
 	/**
 	 * This {@link Shared} constructor will create a new instance which silently ignores any {@link MissingResourceException}
-	 * @see Shared
 	 * @param locale
+	 * @see Shared
 	 */
-	public Shared( Locale locale )
+	public Shared(Locale locale)
 	{
 		this(locale, true);
 	}
 
-
 	/**
-	 * @see Shared
 	 * @param locale
 	 * @param silentlyIgnoreMissingResourceException
+	 * @see Shared
 	 */
-	public Shared( Locale locale, boolean silentlyIgnoreMissingResourceException )
+	public Shared(Locale locale, boolean silentlyIgnoreMissingResourceException)
 	{
 		super();
 		this.locale = locale;
@@ -67,16 +66,16 @@ public class Shared
 
 	/**
 	 * Similar to {@link #getMyPropertyKey3()} for the given {@link Locale}.
+	 * @param locale
 	 * @see Shared
 	 * @see #getMyPropertyKey3()
-	 * @param locale
 	 */
 	protected String getMyPropertyKey3(Locale locale)
 	{
 		try
 		{
 			final String key = "my.property.key3";
-			return I18nFacade.Resource.resourceBasedTranslator.translate( baseName, key, locale );
+			return I18nFacade.Resource.resourceBasedTranslator.translate(baseName, key, locale);
 		}
 		catch (MissingResourceException e)
 		{
@@ -90,12 +89,12 @@ public class Shared
 
 	/**
 	 * Returns the value of the property key <b>my.property.key3</b> for the predefined {@link Locale}.
-   * <br><br>
-   * 
-   * Examples:
-   * <ul>
-   * <li>de_DE=wert3</li>
-   * </ul>
+	 * <br><br>
+	 * 
+	 * Examples:
+	 * <ul>
+	 * <li>de_DE=wert3</li>
+	 * </ul>
 	 * @see Shared
 	 */
 	public String getMyPropertyKey3()
@@ -105,16 +104,16 @@ public class Shared
 
 	/**
 	 * Similar to {@link #getMyPropertyKey4()} for the given {@link Locale}.
+	 * @param locale
 	 * @see Shared
 	 * @see #getMyPropertyKey4()
-	 * @param locale
 	 */
 	protected String getMyPropertyKey4(Locale locale)
 	{
 		try
 		{
 			final String key = "my.property.key4";
-			return I18nFacade.Resource.resourceBasedTranslator.translate( baseName, key, locale );
+			return I18nFacade.Resource.resourceBasedTranslator.translate(baseName, key, locale);
 		}
 		catch (MissingResourceException e)
 		{
@@ -128,12 +127,12 @@ public class Shared
 
 	/**
 	 * Returns the value of the property key <b>my.property.key4</b> for the predefined {@link Locale}.
-   * <br><br>
-   * 
-   * Examples:
-   * <ul>
-   * <li>de_DE=wert4</li>
-   * </ul>
+	 * <br><br>
+	 * 
+	 * Examples:
+	 * <ul>
+	 * <li>de_DE=wert4</li>
+	 * </ul>
 	 * @see Shared
 	 */
 	public String getMyPropertyKey4()
@@ -143,18 +142,18 @@ public class Shared
 
 	/**
 	 * Returns a new instance of {@link Shared} which uses the given setting for the exception handling
-	 * @see Shared
 	 * @param silentlyIgnoreMissingResourceException
+	 * @see Shared
 	 */
-	public Shared doSilentlyIgnoreMissingResourceException( boolean silentlyIgnoreMissingResourceException )
+	public Shared doSilentlyIgnoreMissingResourceException(boolean silentlyIgnoreMissingResourceException)
 	{
-		return new Shared( this.locale, silentlyIgnoreMissingResourceException );
+		return new Shared(this.locale, silentlyIgnoreMissingResourceException);
 	}
 
 	/**
 	 * Returns a new instance of {@link Shared} which uses the given {@link Locale}
-	 * @see Shared
 	 * @param locale
+	 * @see Shared
 	 */
 	public Shared forLocale(Locale locale)
 	{
@@ -170,7 +169,7 @@ public class Shared
 	 */
 	public static Translator translator(Locale locale, boolean silentlyIgnoreMissingResourceException)
 	{
-		return new Translator( baseName, locale, silentlyIgnoreMissingResourceException );
+		return new Translator(baseName, locale, silentlyIgnoreMissingResourceException);
 	}
 
 	/**
@@ -182,7 +181,7 @@ public class Shared
 	 */
 	public Translator translator(Locale locale)
 	{
-		return new Translator( baseName, locale, this.silentlyIgnoreMissingResourceException );
+		return new Translator(baseName, locale, this.silentlyIgnoreMissingResourceException);
 	}
 
 	/**

@@ -35,7 +35,7 @@ import org.omnaest.i18nbinder.internal.facade.I18nFacade.Translator;
  * </table><br><br>
  * @see #translator()
  * @see #translator(Locale)
- */ 
+ */
 @Generated(value = "https://github.com/schlothauer-wauer/i18n-binder/")
 public class _673numericalTest
 {
@@ -45,21 +45,20 @@ public class _673numericalTest
 
 	/**
 	 * This {@link _673numericalTest} constructor will create a new instance which silently ignores any {@link MissingResourceException}
-	 * @see _673numericalTest
 	 * @param locale
+	 * @see _673numericalTest
 	 */
-	public _673numericalTest( Locale locale )
+	public _673numericalTest(Locale locale)
 	{
 		this(locale, true);
 	}
 
-
 	/**
-	 * @see _673numericalTest
 	 * @param locale
 	 * @param silentlyIgnoreMissingResourceException
+	 * @see _673numericalTest
 	 */
-	public _673numericalTest( Locale locale, boolean silentlyIgnoreMissingResourceException )
+	public _673numericalTest(Locale locale, boolean silentlyIgnoreMissingResourceException)
 	{
 		super();
 		this.locale = locale;
@@ -68,16 +67,16 @@ public class _673numericalTest
 
 	/**
 	 * Similar to {@link #getMyPropertyKey1()} for the given {@link Locale}.
+	 * @param locale
 	 * @see _673numericalTest
 	 * @see #getMyPropertyKey1()
-	 * @param locale
 	 */
 	protected String getMyPropertyKey1(Locale locale)
 	{
 		try
 		{
 			final String key = "my.property.key1";
-			return I18nFacade.Resource.resourceBasedTranslator.translate( baseName, key, locale );
+			return I18nFacade.Resource.resourceBasedTranslator.translate(baseName, key, locale);
 		}
 		catch (MissingResourceException e)
 		{
@@ -91,17 +90,17 @@ public class _673numericalTest
 
 	/**
 	 * Returns the value of the property key <b>my.property.key1</b> for the predefined {@link Locale}.
-   * <br><br>
-   * Placeholders:
-   * <ul>
-   * <li><b>{0}</b></li>
-   * <li><b>{1}</b></li>
-   * </ul>
-   * 
-   * Examples:
-   * <ul>
-   * <li>en_US=value {0} and {1}</li>
-   * </ul>
+	 * <br><br>
+	 * Placeholders:
+	 * <ul>
+	 * <li><b>{0}</b></li>
+	 * <li><b>{1}</b></li>
+	 * </ul>
+	 * 
+	 * Examples:
+	 * <ul>
+	 * <li>en_US=value {0} and {1}</li>
+	 * </ul>
 	 * @see _673numericalTest
 	 */
 	public String getMyPropertyKey1()
@@ -111,10 +110,10 @@ public class _673numericalTest
 
 	/**
 	 * Similar to  {@link #getMyPropertyKey1(Object[])} using the given {@link Locale}.
-	 * @see _673numericalTest
-	 * @see #getMyPropertyKey1(String[])
 	 * @param locale
 	 * @param tokens
+	 * @see _673numericalTest
+	 * @see #getMyPropertyKey1(Object[])
 	 */
 	public String getMyPropertyKey1(Locale locale, Object... tokens)
 	{
@@ -122,9 +121,9 @@ public class _673numericalTest
 		for (int ii = 0; ii < tokens.length; ii++)
 		{
 			String token = tokens[ii] != null ? tokens[ii].toString() : null;
-			if ( token != null )
+			if (token != null)
 			{
-				retval = retval.replaceAll( "\\{" + ii + "\\}", token );
+				retval = retval.replaceAll("\\{" + ii + "\\}", token);
 			}
 		}
 		return retval;
@@ -133,20 +132,20 @@ public class _673numericalTest
 	/**
 	 * Returns the value of the property key <b>my.property.key1</b> for the predefined {@link Locale} with all {0},{1},... placeholders replaced by the given tokens in their order.<br><br>
 	 * If there are not enough parameters existing placeholders will remain unreplaced.
-   * <br><br>
-   * Placeholders:
-   * <ul>
-   * <li><b>{0}</b></li>
-   * <li><b>{1}</b></li>
-   * </ul>
-   * 
-   * Examples:
-   * <ul>
-   * <li>en_US=value {0} and {1}</li>
-   * </ul>
+	 * <br><br>
+	 * Placeholders:
+	 * <ul>
+	 * <li><b>{0}</b></li>
+	 * <li><b>{1}</b></li>
+	 * </ul>
+	 * 
+	 * Examples:
+	 * <ul>
+	 * <li>en_US=value {0} and {1}</li>
+	 * </ul>
+	 * @param tokens
 	 * @see _673numericalTest
 	 * @see #getMyPropertyKey1(Locale, Object[])
-	 * @param tokens
 	 */
 	public String getMyPropertyKey1(Object... tokens)
 	{
@@ -155,16 +154,16 @@ public class _673numericalTest
 
 	/**
 	 * Similar to {@link #getMyPropertyKey3()} for the given {@link Locale}.
+	 * @param locale
 	 * @see _673numericalTest
 	 * @see #getMyPropertyKey3()
-	 * @param locale
 	 */
 	protected String getMyPropertyKey3(Locale locale)
 	{
 		try
 		{
 			final String key = "my.property.key3";
-			return I18nFacade.Resource.resourceBasedTranslator.translate( baseName, key, locale );
+			return I18nFacade.Resource.resourceBasedTranslator.translate(baseName, key, locale);
 		}
 		catch (MissingResourceException e)
 		{
@@ -178,16 +177,16 @@ public class _673numericalTest
 
 	/**
 	 * Returns the value of the property key <b>my.property.key3</b> for the predefined {@link Locale}.
-   * <br><br>
-   * Placeholders:
-   * <ul>
-   * <li><b>{arbitrary}</b></li>
-   * </ul>
-   * 
-   * Examples:
-   * <ul>
-   * <li>en_US=value3 with {arbitrary} replacement</li>
-   * </ul>
+	 * <br><br>
+	 * Placeholders:
+	 * <ul>
+	 * <li><b>{arbitrary}</b></li>
+	 * </ul>
+	 * 
+	 * Examples:
+	 * <ul>
+	 * <li>en_US=value3 with {arbitrary} replacement</li>
+	 * </ul>
 	 * @see _673numericalTest
 	 */
 	public String getMyPropertyKey3()
@@ -198,32 +197,32 @@ public class _673numericalTest
 	/**
 	 * Returns the value of the property key <b>my.property.key3</b> for the given {@link Locale} with arbitrary placeholder tag like {example} replaced by the given values.<br>
 	 * The given placeholderToReplacementMap needs the placeholder tag name and a value. E.g. for {example} the key "example" has to be set.
-   * <br><br>
-   * Placeholders:
-   * <ul>
-   * <li><b>{arbitrary}</b></li>
-   * </ul>
-   * 
-   * Examples:
-   * <ul>
-   * <li>en_US=value3 with {arbitrary} replacement</li>
-   * </ul>
-	 * @see _673numericalTest
-	 * @see #getMyPropertyKey3(Map)
+	 * <br><br>
+	 * Placeholders:
+	 * <ul>
+	 * <li><b>{arbitrary}</b></li>
+	 * </ul>
+	 * 
+	 * Examples:
+	 * <ul>
+	 * <li>en_US=value3 with {arbitrary} replacement</li>
+	 * </ul>
 	 * @param locale
 	 * @param placeholderToReplacementMap
+	 * @see _673numericalTest
+	 * @see #getMyPropertyKey3(Map)
 	 */
-	public String getMyPropertyKey3( Locale locale, Map<String, String> placeholderToReplacementMap )
+	public String getMyPropertyKey3(Locale locale, Map<String, String> placeholderToReplacementMap)
 	{
 		String retval = getMyPropertyKey3(locale);
-		if ( placeholderToReplacementMap != null )
+		if (placeholderToReplacementMap != null)
 		{
-			for ( String placeholder : placeholderToReplacementMap.keySet() )
+			for (String placeholder : placeholderToReplacementMap.keySet())
 			{
-				if ( placeholder != null )
+				if (placeholder != null)
 				{
-					String token = placeholderToReplacementMap.get( placeholder );
-					retval = retval.replaceAll( "\\{" + placeholder + "\\}", token );
+					String token = placeholderToReplacementMap.get(placeholder);
+					retval = retval.replaceAll("\\{" + placeholder + "\\}", token);
 				}
 			}
 		}
@@ -232,29 +231,29 @@ public class _673numericalTest
 
 	/**
 	 * Similar to  {@link #getMyPropertyKey3(Locale,Map)} using the predefined {@link Locale}.
-	 * @see _673numericalTest
-	 * @see #getMyPropertyKey3(Locale,Map)
 	 * @param placeholderToReplacementMap
+	 * @see _673numericalTest
+	 * @see #getMyPropertyKey3(Locale, Map)
 	 */
-	public String getMyPropertyKey3( Map<String, String> placeholderToReplacementMap )
+	public String getMyPropertyKey3(Map<String, String> placeholderToReplacementMap)
 	{
-		return getMyPropertyKey3( this.locale, placeholderToReplacementMap );
+		return getMyPropertyKey3(this.locale, placeholderToReplacementMap);
 	}
 
 	/**
 	 * Returns a new instance of {@link _673numericalTest} which uses the given setting for the exception handling
-	 * @see _673numericalTest
 	 * @param silentlyIgnoreMissingResourceException
+	 * @see _673numericalTest
 	 */
-	public _673numericalTest doSilentlyIgnoreMissingResourceException( boolean silentlyIgnoreMissingResourceException )
+	public _673numericalTest doSilentlyIgnoreMissingResourceException(boolean silentlyIgnoreMissingResourceException)
 	{
-		return new _673numericalTest( this.locale, silentlyIgnoreMissingResourceException );
+		return new _673numericalTest(this.locale, silentlyIgnoreMissingResourceException);
 	}
 
 	/**
 	 * Returns a new instance of {@link _673numericalTest} which uses the given {@link Locale}
-	 * @see _673numericalTest
 	 * @param locale
+	 * @see _673numericalTest
 	 */
 	public _673numericalTest forLocale(Locale locale)
 	{
@@ -270,7 +269,7 @@ public class _673numericalTest
 	 */
 	public static Translator translator(Locale locale, boolean silentlyIgnoreMissingResourceException)
 	{
-		return new Translator( baseName, locale, silentlyIgnoreMissingResourceException );
+		return new Translator(baseName, locale, silentlyIgnoreMissingResourceException);
 	}
 
 	/**
@@ -282,7 +281,7 @@ public class _673numericalTest
 	 */
 	public Translator translator(Locale locale)
 	{
-		return new Translator( baseName, locale, this.silentlyIgnoreMissingResourceException );
+		return new Translator(baseName, locale, this.silentlyIgnoreMissingResourceException);
 	}
 
 	/**

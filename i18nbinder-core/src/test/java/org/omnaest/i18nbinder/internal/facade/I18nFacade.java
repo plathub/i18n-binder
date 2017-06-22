@@ -15,7 +15,7 @@ import org.omnaest.i18nbinder.internal.facade.i18nfacade.I18n;
  * If the facade class is instantiated with a given {@link Locale} using {@link #I18nFacade(Locale)} all non static methods will use this predefined {@link Locale} when invoked.<br><br>
  * The facade methods will silently ignore all {@link MissingResourceException}s by default. To alter this behavior see {@link #I18nFacade(Locale, boolean)}<br><br>
  * @see I18n
- */ 
+ */
 @Generated(value = "https://github.com/schlothauer-wauer/i18n-binder/")
 public class I18nFacade
 {
@@ -49,18 +49,16 @@ public class I18nFacade
 				return resourceBundle.keySet().toArray(new String[0]);
 			}
 		};
-
 	}
+
 	/** Defines which {@link ResourceBasedTranslator} the facade should use. This affects all available instances. */
-	public static void use( ResourceBasedTranslator resourceBasedTranslator )
+	public static void use(ResourceBasedTranslator resourceBasedTranslator)
 	{
 		I18nFacade.Resource.resourceBasedTranslator = resourceBasedTranslator;
 	}
 
-
 	/**
-	 * Basic interface which is used by the facade to resolve translated values for given keys<br>
-	 * <br>
+	 * Basic interface which is used by the facade to resolve translated values for given keys<br><br>
 	 * Any implementation should be thread safe
 	 */
 	public static interface ResourceBasedTranslator
@@ -70,7 +68,7 @@ public class I18nFacade
 		 * @param baseName
 		 * @param key
 		 * @param locale
-		 * @return
+		 * @return translated string
 		 */
 		public String translate(String baseName, String key, Locale locale);
 
@@ -83,11 +81,8 @@ public class I18nFacade
 		public String[] resolveAllKeys(String baseName, Locale locale);
 	}
 
-
 	/**
-	 * A {@link Translator} offers several methods to translate arbitrary keys into their i18n counterpart based on the initially
-	 * given {@link Locale}.
-	 * 
+	 * A {@link Translator} offers several methods to translate arbitrary keys into their i18n counterpart based on the initially given {@link Locale}.
 	 * @see #translate(String)
 	 * @see #translate(String[])
 	 * @see #allPropertyKeys()
@@ -109,12 +104,12 @@ public class I18nFacade
 		}
 
 		/**
-
 		 * @see Translator
 		 * @param baseName
 		 * @param locale
+		 * @param silentlyIgnoreMissingResourceException
 		 */
-		public Translator( String baseName, Locale locale, boolean silentlyIgnoreMissingResourceException )
+		public Translator(String baseName, Locale locale, boolean silentlyIgnoreMissingResourceException)
 		{
 			super();
 			this.baseName = baseName;
@@ -127,14 +122,14 @@ public class I18nFacade
 		 * @see Translator
 		 * @see #translate(String)
 		 * @see #translate(String[])
-		 */ 
+		 */
 		public String translate(Locale locale, String key)
 		{
 			try
 			{
-				return I18nFacade.Resource.resourceBasedTranslator.translate( this.baseName, key, locale );
+				return I18nFacade.Resource.resourceBasedTranslator.translate(this.baseName, key, locale);
 			}
-			catch ( MissingResourceException e )
+			catch (MissingResourceException e)
 			{
 				if (!this.silentlyIgnoreMissingResourceException)
 				{
@@ -149,7 +144,7 @@ public class I18nFacade
 		 * @see Translator
 		 * @see #translate(Locale, String)
 		 * @see #translate(String[])
-		 */ 
+		 */
 		public String translate(String key)
 		{
 			return translate(this.locale, key);
@@ -157,12 +152,13 @@ public class I18nFacade
 
 		/**
 		 * Returns a translation {@link Map} with the given property keys and their respective values for the given {@link Locale}.
-		 * @param keys 
+		 * @param locale
+		 * @param keys
 		 * @see Translator
 		 * @see #allPropertyKeys()
 		 * @see #translate(String)
-		 */ 
-		public Map<String, String> translate( Locale locale, String... keys )
+		 */
+		public Map<String, String> translate(Locale locale, String... keys)
 		{
 			Map<String, String> retmap = new LinkedHashMap<String, String>();
 			for (String key : keys)
@@ -174,87 +170,85 @@ public class I18nFacade
 
 		/**
 		 * Returns a translation {@link Map} with the given property keys and their respective values for the predefined {@link Locale}.
-		 * @param keys 
+		 * @param keys
 		 * @see Translator
 		 * @see #allPropertyKeys()
 		 * @see #translate(String)
-		 */ 
+		 */
 		public Map<String, String> translate(String... keys)
 		{
 			return translate(this.locale, keys);
 		}
 
 		/**
-		 * Returns all available property keys for the given {@link Locale}. 
+		 * Returns all available property keys for the given {@link Locale}.
+		 * @param locale
 		 * @see Translator
 		 * @see #allPropertyKeys()
 		 * @see #translate(String[])
-		 */ 
+		 */
 		public String[] allPropertyKeys(Locale locale)
 		{
 			return I18nFacade.Resource.resourceBasedTranslator.resolveAllKeys(this.baseName, locale);
 		}
 
 		/**
-		 * Returns all available property keys for the predefined {@link Locale}. 
+		 * Returns all available property keys for the predefined {@link Locale}.
 		 * @see Translator
 		 * @see #allPropertyKeys(Locale)
 		 * @see #translate(String[])
-		 */ 
+		 */
 		public String[] allPropertyKeys()
 		{
 			return allPropertyKeys(this.locale);
 		}
 
 		/**
-		 * Returns a translation {@link Map} for the predefined {@link Locale} including all available i18n keys resolved using 
-		 * {@link #allPropertyKeys()} and their respective translation values resolved using {@link #translate(String...)} 
+		 * Returns a translation {@link Map} for the predefined {@link Locale} including all available i18n keys resolved using
+		 * {@link #allPropertyKeys()} and their respective translation values resolved using {@link #translate(String...)}
 		 * @see Translator
 		 * @see #allPropertyKeys(Locale)
 		 * @see #translate(String[])
 		 * @return {@link Map}
-		 */ 
+		 */
 		public Map<String, String> translationMap()
 		{
 			return this.translate(this.allPropertyKeys());
 		}
 
 		/**
-		 * Similar to {@link #translationMap()} for the given {@link Locale} instead. 
+		 * Similar to {@link #translationMap()} for the given {@link Locale} instead.
+		 * @param locale
 		 * @see Translator
 		 * @see #allPropertyKeys(Locale)
 		 * @see #translate(String[])
-		 * @param locale
 		 * @return {@link Map}
-		 */ 
+		 */
 		public Map<String, String> translationMap(Locale locale)
 		{
 			return this.translate(locale, this.allPropertyKeys(locale));
 		}
-
 	}
-
 
 	/**
 	 * This {@link I18nFacade} constructor will create a new instance which silently ignores any {@link MissingResourceException}
-	 * @see I18nFacade
 	 * @param locale
+	 * @see I18nFacade
 	 */
-	public I18nFacade( Locale locale )
+	public I18nFacade(Locale locale)
 	{
 		this(locale, true);
 	}
 
-
 	/**
-	 * @see I18nFacade
 	 * @param locale
 	 * @param silentlyIgnoreMissingResourceException
+	 * @see I18nFacade
 	 */
-	public I18nFacade( Locale locale, boolean silentlyIgnoreMissingResourceException )
+	public I18nFacade(Locale locale, boolean silentlyIgnoreMissingResourceException)
 	{
 		super();
-		this.I18n = new I18n( locale, silentlyIgnoreMissingResourceException );
+		this.I18n = new I18n(locale, silentlyIgnoreMissingResourceException);
 	}
 
 }

@@ -40,7 +40,7 @@ import org.omnaest.i18nbinder.internal.facade.I18nFacade.Translator;
  * </table><br><br>
  * @see #translator()
  * @see #translator(Locale)
- */ 
+ */
 @Generated(value = "https://github.com/schlothauer-wauer/i18n-binder/")
 public class AdminTest
 {
@@ -50,21 +50,20 @@ public class AdminTest
 
 	/**
 	 * This {@link AdminTest} constructor will create a new instance which silently ignores any {@link MissingResourceException}
-	 * @see AdminTest
 	 * @param locale
+	 * @see AdminTest
 	 */
-	public AdminTest( Locale locale )
+	public AdminTest(Locale locale)
 	{
 		this(locale, true);
 	}
 
-
 	/**
-	 * @see AdminTest
 	 * @param locale
 	 * @param silentlyIgnoreMissingResourceException
+	 * @see AdminTest
 	 */
-	public AdminTest( Locale locale, boolean silentlyIgnoreMissingResourceException )
+	public AdminTest(Locale locale, boolean silentlyIgnoreMissingResourceException)
 	{
 		super();
 		this.locale = locale;
@@ -73,16 +72,16 @@ public class AdminTest
 
 	/**
 	 * Similar to {@link #getMyPropertyKey1()} for the given {@link Locale}.
+	 * @param locale
 	 * @see AdminTest
 	 * @see #getMyPropertyKey1()
-	 * @param locale
 	 */
 	protected String getMyPropertyKey1(Locale locale)
 	{
 		try
 		{
 			final String key = "my.property.key1";
-			return I18nFacade.Resource.resourceBasedTranslator.translate( baseName, key, locale );
+			return I18nFacade.Resource.resourceBasedTranslator.translate(baseName, key, locale);
 		}
 		catch (MissingResourceException e)
 		{
@@ -96,13 +95,13 @@ public class AdminTest
 
 	/**
 	 * Returns the value of the property key <b>my.property.key1</b> for the predefined {@link Locale}.
-   * <br><br>
-   * 
-   * Examples:
-   * <ul>
-   * <li>de_DE=wert1</li>
-   * <li>en_US=value1</li>
-   * </ul>
+	 * <br><br>
+	 * 
+	 * Examples:
+	 * <ul>
+	 * <li>de_DE=wert1</li>
+	 * <li>en_US=value1</li>
+	 * </ul>
 	 * @see AdminTest
 	 */
 	public String getMyPropertyKey1()
@@ -112,16 +111,16 @@ public class AdminTest
 
 	/**
 	 * Similar to {@link #getMyPropertyKey2()} for the given {@link Locale}.
+	 * @param locale
 	 * @see AdminTest
 	 * @see #getMyPropertyKey2()
-	 * @param locale
 	 */
 	protected String getMyPropertyKey2(Locale locale)
 	{
 		try
 		{
 			final String key = "my.property.key2";
-			return I18nFacade.Resource.resourceBasedTranslator.translate( baseName, key, locale );
+			return I18nFacade.Resource.resourceBasedTranslator.translate(baseName, key, locale);
 		}
 		catch (MissingResourceException e)
 		{
@@ -135,13 +134,13 @@ public class AdminTest
 
 	/**
 	 * Returns the value of the property key <b>my.property.key2</b> for the predefined {@link Locale}.
-   * <br><br>
-   * 
-   * Examples:
-   * <ul>
-   * <li>de_DE=wert2</li>
-   * <li>en_US=value2</li>
-   * </ul>
+	 * <br><br>
+	 * 
+	 * Examples:
+	 * <ul>
+	 * <li>de_DE=wert2</li>
+	 * <li>en_US=value2</li>
+	 * </ul>
 	 * @see AdminTest
 	 */
 	public String getMyPropertyKey2()
@@ -151,18 +150,18 @@ public class AdminTest
 
 	/**
 	 * Returns a new instance of {@link AdminTest} which uses the given setting for the exception handling
-	 * @see AdminTest
 	 * @param silentlyIgnoreMissingResourceException
+	 * @see AdminTest
 	 */
-	public AdminTest doSilentlyIgnoreMissingResourceException( boolean silentlyIgnoreMissingResourceException )
+	public AdminTest doSilentlyIgnoreMissingResourceException(boolean silentlyIgnoreMissingResourceException)
 	{
-		return new AdminTest( this.locale, silentlyIgnoreMissingResourceException );
+		return new AdminTest(this.locale, silentlyIgnoreMissingResourceException);
 	}
 
 	/**
 	 * Returns a new instance of {@link AdminTest} which uses the given {@link Locale}
-	 * @see AdminTest
 	 * @param locale
+	 * @see AdminTest
 	 */
 	public AdminTest forLocale(Locale locale)
 	{
@@ -178,7 +177,7 @@ public class AdminTest
 	 */
 	public static Translator translator(Locale locale, boolean silentlyIgnoreMissingResourceException)
 	{
-		return new Translator( baseName, locale, silentlyIgnoreMissingResourceException );
+		return new Translator(baseName, locale, silentlyIgnoreMissingResourceException);
 	}
 
 	/**
@@ -190,7 +189,7 @@ public class AdminTest
 	 */
 	public Translator translator(Locale locale)
 	{
-		return new Translator( baseName, locale, this.silentlyIgnoreMissingResourceException );
+		return new Translator(baseName, locale, this.silentlyIgnoreMissingResourceException);
 	}
 
 	/**
