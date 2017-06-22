@@ -26,16 +26,12 @@ import org.omnaest.i18nbinder.internal.facade.I18nFacade.Translator;
  * <td rowspan="2">my.property.key1</td>
  * <td>de_DE=wert1</td>
  * </tr>
- * <tr>
- * <td><small>en_US=value1</small></td>
- * </tr>
+ * <tr><td><small>en_US=value1</small></td></tr>
  * <tr>
  * <td rowspan="2">my.property.key2</td>
  * <td>de_DE=wert2</td>
  * </tr>
- * <tr>
- * <td><small>en_US=value2</small></td>
- * </tr>
+ * <tr><td><small>en_US=value2</small></td></tr>
  * </tbody>
  * </table><br><br>
  * @see #translator()

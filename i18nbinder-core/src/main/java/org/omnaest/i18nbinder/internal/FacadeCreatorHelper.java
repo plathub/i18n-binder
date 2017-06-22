@@ -560,10 +560,9 @@ public class FacadeCreatorHelper
 			//methods based on properties
 			if (hasProperties)
 			{
-
+				boolean generateReplaceTokensFunctions = false;
 				for (String propertyName : propertyNameToExampleValueListMap.keySet())
 				{
-
 					String propertyKey = propertyNameToPropertyKeyMap.get(propertyName);
 					List<String> exampleValueList = propertyNameToExampleValueListMap.get(propertyName);
 
@@ -600,16 +599,11 @@ public class FacadeCreatorHelper
 
 					if (containsNumericalReplacementToken)
 					{
+						generateReplaceTokensFunctions = true;
 						code.javaDoc("Similar to  {@link #get" + propertyName + "(Object[])} using the given {@link Locale}.").params("locale", "tokens").see(className)
 							.see("#get" + propertyName + "(Object[])").end();
 						code.begins("public String get" + propertyName + "(Locale locale, Object... tokens)");
-						code.append("String retval = get" + propertyName + "(locale);");
-						code.begins("for (int ii = 0; ii < tokens.length; ii++)");
-						code.append("String token = tokens[ii] != null ? tokens[ii].toString() : null;");
-						code.begins("if (token != null)");
-						code.append("retval = retval.replaceAll(\"\\\\{\" + ii + \"\\\\}\", token);");
-						code.endBlock().endBlock();
-						code.returns("retval;");
+						code.returns("replaceTokens(get" + propertyName + "(locale), tokens);");
 						code.endBlock().newLine();
 
 						javaDoc = code.javaDoc();
@@ -653,6 +647,18 @@ public class FacadeCreatorHelper
 						code.returns("get" + propertyName + "(this.locale, placeholderToReplacementMap);");
 						code.endBlock().newLine();
 					}
+				}
+
+				if (generateReplaceTokensFunctions)
+				{
+					code.begins("private static String replaceTokens(String str, Object... tokens)");
+					code.begins("for (int index = 0; index < tokens.length; index++)");
+					code.append("String token = tokens[index] != null ? tokens[index].toString() : null;");
+					code.begins("if (token != null)");
+					code.append("str = str.replaceAll(\"\\\\{\" + index + \"\\\\}\", token);");
+					code.endBlock().endBlock();
+					code.returns("str;");
+					code.endBlock().newLine();
 				}
 
 				//fluid factory methods
@@ -752,9 +758,7 @@ public class FacadeCreatorHelper
 				javaDoc.append("</tr>");
 				while (iteratorExampleValueList.hasNext())
 				{
-					javaDoc.append("<tr>");
-					javaDoc.append("<td><small>" + iteratorExampleValueList.next() + "</small></td>");
-					javaDoc.append("</tr>");
+					javaDoc.append("<tr><td><small>" + iteratorExampleValueList.next() + "</small></td></tr>");
 				}
 			}
 		}

@@ -117,16 +117,7 @@ public class _673numericalTest
 	 */
 	public String getMyPropertyKey1(Locale locale, Object... tokens)
 	{
-		String retval = getMyPropertyKey1(locale);
-		for (int ii = 0; ii < tokens.length; ii++)
-		{
-			String token = tokens[ii] != null ? tokens[ii].toString() : null;
-			if (token != null)
-			{
-				retval = retval.replaceAll("\\{" + ii + "\\}", token);
-			}
-		}
-		return retval;
+		return replaceTokens(getMyPropertyKey1(locale), tokens);
 	}
 
 	/**
@@ -238,6 +229,19 @@ public class _673numericalTest
 	public String getMyPropertyKey3(Map<String, String> placeholderToReplacementMap)
 	{
 		return getMyPropertyKey3(this.locale, placeholderToReplacementMap);
+	}
+
+	private static String replaceTokens(String str, Object... tokens)
+	{
+		for (int index = 0; index < tokens.length; index++)
+		{
+			String token = tokens[index] != null ? tokens[index].toString() : null;
+			if (token != null)
+			{
+				str = str.replaceAll("\\{" + index + "\\}", token);
+			}
+		}
+		return str;
 	}
 
 	/**
