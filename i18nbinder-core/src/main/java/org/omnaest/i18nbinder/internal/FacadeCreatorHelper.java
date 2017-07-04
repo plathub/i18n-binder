@@ -155,7 +155,7 @@ public class FacadeCreatorHelper
 
 			//facade source code
 			{
-				TokenMonoHierarchy<String, PropertyKeyAndValues> TokenMonoHierarchy = new TokenMonoHierarchy<String, PropertyKeyAndValues>();
+				TokenMonoHierarchy<String, PropertyKeyAndValues> tokenMonoHierarchy = new TokenMonoHierarchy<String, PropertyKeyAndValues>();
 
 				for (FileGroupToPropertiesAdapter fileGroupToPropertiesAdapter : fileGroupToPropertiesAdapterList)
 				{
@@ -172,11 +172,9 @@ public class FacadeCreatorHelper
 							tokenPathElementList.addAll(Arrays.asList(baseNameTokens));
 						}
 
-						String[] fileGroupIdentifierTokens = fileGroupIdentifier.replaceFirst(Pattern.quote(baseFolderIgnoredPath), "")
-							.split(pathDelimiter);
+						String[] fileGroupIdentifierTokens = fileGroupIdentifier.replaceFirst(Pattern.quote(baseFolderIgnoredPath), "").split(pathDelimiter);
 						if (fileGroupIdentifierTokens.length > 0)
 						{
-
 							String lastToken = fileGroupIdentifierTokens[fileGroupIdentifierTokens.length - 1];
 							lastToken = lastToken.replaceAll("\\.properties$", "").replaceAll("_", "");
 							fileGroupIdentifierTokens[fileGroupIdentifierTokens.length - 1] = lastToken;
@@ -185,7 +183,6 @@ public class FacadeCreatorHelper
 						}
 
 						tokenPathElementList = ListUtils.filter(tokenPathElementList, new ElementFilterNotBlank());
-
 					}
 
 					ModifierHelper.logger.info("Processing: " + fileGroupIdentifier);
@@ -213,7 +210,7 @@ public class FacadeCreatorHelper
 							}
 
 							TokenElementPath<String> tokenElementPath = new TokenElementPath<String>(tokenPathElementList);
-							TokenMonoHierarchy.addTokenElementPathWithValues(tokenElementPath, propertyKeyAndValues);
+							tokenMonoHierarchy.addTokenElementPathWithValues(tokenElementPath, propertyKeyAndValues);
 						}
 					}
 				}
@@ -221,7 +218,7 @@ public class FacadeCreatorHelper
 				final Map<String, StringBuilder> externalizedClassToContentMap = externalizeTypes ? new LinkedHashMap<String, StringBuilder>()
 					: null;
 				retmap.put(packageName + "." + i18nFacadeName,
-					buildFacadeSource(TokenMonoHierarchy, packageName, i18nFacadeName, externalizedClassToContentMap, propertyfileEncoding));
+					buildFacadeSource(tokenMonoHierarchy, packageName, i18nFacadeName, externalizedClassToContentMap, propertyfileEncoding));
 				if (externalizeTypes)
 				{
 					for (String subClassName : externalizedClassToContentMap.keySet())
@@ -243,7 +240,7 @@ public class FacadeCreatorHelper
 		public List<String> valueList = new ArrayList<String>();
 	}
 
-	private static String buildFacadeSource(TokenMonoHierarchy<String, PropertyKeyAndValues> TokenMonoHierarchy,
+	private static String buildFacadeSource(TokenMonoHierarchy<String, PropertyKeyAndValues> tokenMonoHierarchy,
 		String packageName,
 		String i18nFacadeName,
 		Map<String, StringBuilder> externalizedClassToContentMap,
@@ -251,7 +248,7 @@ public class FacadeCreatorHelper
 	{
 		StringBuilder retval = new StringBuilder();
 
-		TokenMonoHierarchy<String, PropertyKeyAndValues>.Navigator navigator = TokenMonoHierarchy.getNavigator();
+		TokenMonoHierarchy<String, PropertyKeyAndValues>.Navigator navigator = tokenMonoHierarchy.getNavigator();
 
 		final String className = i18nFacadeName;
 		final boolean isSubClass = false;
